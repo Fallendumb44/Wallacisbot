@@ -1,0 +1,22 @@
+#bibliotecas
+import telebot
+from random import randint
+#reconhecimento da chave
+chave_api = "7295672235:AAHXgeYvcP7uNko32YlBqcbtdgh6E81RTNw"
+
+bot = telebot.TeleBot(chave_api)
+#personagens
+personagens = {int(1):"Sasuke(1)",int(2):"naruto(2)",int(3):"sakura(3)"}
+#comandos
+@bot.message_handler(commands=["girar"])
+def girar(mensagem):
+    perso_da_vez = randint(1,3)
+    bot.reply_to(mensagem,"parabens você ganhou o {}".format(personagens[perso_da_vez]))
+
+def verificar(mensagem):
+    return True
+
+@bot.message_handler(func=verificar)
+def respoder(mensagem):
+    bot.reply_to(mensagem, "Olá, eu fui feito para aprendizado meus comandos são /girar. futuramente terei novos")
+bot.polling()
