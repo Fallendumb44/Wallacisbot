@@ -2,7 +2,7 @@
 import telebot
 from random import randint
 #reconhecimento da chave
-chave_api = "7295672235:AAHXgeYvcP7uNko32YlBqcbtdgh6E81RTNw"
+chave_api = "TOKEN"
 
 bot = telebot.TeleBot(chave_api)
 #personagens
